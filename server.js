@@ -6,6 +6,7 @@ const buzzwordsRoutes = require('./routes/buzzwords.js');
 
 const rootDir = 'public';
 app.set('buzzwords', {buzzwords: []});
+app.set('score', 0);
 
 // Serve files from the public directory
 app.use(express.static(rootDir));

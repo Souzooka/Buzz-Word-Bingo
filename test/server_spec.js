@@ -47,7 +47,7 @@ describe('Buzz-Word-Bingo', function() {
 
   it('Returns a JSON string when resetting', function(done) {
     request
-      .post('/buzzwords')
+      .post('/reset')
       .expect(200)
       .expect('Content-Type', 'application/json; charset=utf-8', done);
   });
