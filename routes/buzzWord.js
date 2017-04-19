@@ -19,9 +19,33 @@ function findBuzzWordIndex(req) {
   });
 }
 
+function updateBuzzWordAndScore(req, buzzWordIndex, score) {
+  const buzzWordObj = req.app.get('buzzWords').buzzWords[buzzWordIndex];
+
+  if (!buzzWordObj.heard) {
+    score += buzzWordObj.points;
+  }
+  buzzWordObj.heard = req.body.heard;
+  req.app.set('score', score);
+}
+
 function deleteBuzzWord(req, buzzWordIndex) {
   const buzzWordsArr = req.app.get('buzzWords').buzzWords;
   buzzWordsArr.splice(buzzWordIndex, 1);
+}
+
+function stringToBoolean(str) {
+  switch (str.toLowerCase()) {
+    case 'true': {
+      return true;
+    }
+    case 'false': {
+      return false;
+    }
+    default: {
+      return undefined;
+    }
+  }
 }
 
 router.route('/')
@@ -36,6 +60,16 @@ router.route('/')
       })
       .put((req, res) => {
         const buzzWordIndex = findBuzzWordIndex(req);
+        let score = req.app.get('score');
+        req.body.heard = stringToBoolean(req.body.heard);
+
+        if (buzzWordIndex !== -1 && req.body.heard !== undefined) {
+          updateBuzzWordAndScore(req, buzzWordIndex, score);
+          res.send({"success": true});
+        } else {
+          res.status(400);
+          res.send({"success": false});
+        }
       })
       .delete((req, res) => {
         const buzzWordIndex = findBuzzWordIndex(req);
