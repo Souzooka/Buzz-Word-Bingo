@@ -3,7 +3,7 @@ const router = express.Router();
 
 function isValidNewBuzzword(req) {
   // Just a simple check to check if these properties exist
-  return (req.body.buzzWord && req.body.points);
+  return (req.body.buzzWord && req.body.points && (findBuzzWordIndex(req) === -1));
 }
 
 function addBuzzWord(req) {
