@@ -2,10 +2,11 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const indexRoutes = require('./routes/index.js');
-const buzzwordsRoutes = require('./routes/buzzwords.js');
+const buzzWordRoutes = require('./routes/buzzWord.js');
+const buzzWordsRoutes = require('./routes/buzzWords.js');
 
 const rootDir = 'public';
-app.set('buzzwords', {buzzwords: []});
+app.set('buzzWords', {buzzWords: []});
 app.set('score', 0);
 
 // Serve files from the public directory
@@ -17,7 +18,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 // Routes
 app.use(rootDir, indexRoutes);
-app.use('/buzzwords', buzzwordsRoutes);
+app.use('/buzzword', buzzWordRoutes);
+app.use('/buzzwords', buzzWordsRoutes);
 
   // 404 Route
 app.get('*', (req, res) => {
