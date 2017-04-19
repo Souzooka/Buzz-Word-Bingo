@@ -15,6 +15,12 @@ app.use(bodyParser.urlencoded({extended: false}));
 // Routes
 app.use(rootDir, indexRoutes);
 
+  // 404 Route
+app.get('*', (req, res) => {
+  res.status(404);
+  res.sendFile(`${rootDir}/404.html`, {root: './'});
+});
+
 // Initialize server
 const server = app.listen(3000, () => {
   var host = server.address().address;
@@ -24,4 +30,4 @@ const server = app.listen(3000, () => {
 });
 
 // For testing
-module.exports = server
+module.exports = server;
