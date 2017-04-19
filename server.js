@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const indexRoutes = require('./routes/index.js');
+const buzzwordsRoutes = require('./routes/buzzwords.js');
 
 const rootDir = 'public';
 
@@ -14,6 +15,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 // Routes
 app.use(rootDir, indexRoutes);
+app.use('/buzzwords', buzzwordsRoutes);
 
   // 404 Route
 app.get('*', (req, res) => {

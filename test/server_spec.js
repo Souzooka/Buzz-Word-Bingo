@@ -17,4 +17,11 @@ describe('Buzz-Word-Bingo', function() {
       .expect('Content-Type', 'text/html; charset=UTF-8', done);
   });
 
+  it('Returns a JSON string when requesting "GET /buzzwords"', function(done) {
+    request
+      .get('/buzzwords')
+      .expect(200)
+      .expect('Content-Type', 'application/json; charset=utf-8', done);
+  });
+
 });
