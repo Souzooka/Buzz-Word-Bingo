@@ -20,8 +20,8 @@ function findBuzzWordIndex(req) {
 }
 
 function deleteBuzzWord(req, buzzWordIndex) {
-  const buzzWords = req.app.get('buzzWords');
-  buzzWords.buzzWords.splice(buzzWordIndex, 1);
+  const buzzWordsArr = req.app.get('buzzWords').buzzWords;
+  buzzWordsArr.splice(buzzWordIndex, 1);
 }
 
 router.route('/')

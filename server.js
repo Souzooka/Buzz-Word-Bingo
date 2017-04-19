@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const indexRoutes = require('./routes/index.js');
+const resetRoutes = require('./routes/reset.js');
 const buzzWordRoutes = require('./routes/buzzWord.js');
 const buzzWordsRoutes = require('./routes/buzzWords.js');
 
@@ -18,6 +19,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 // Routes
 app.use(rootDir, indexRoutes);
+app.use('/reset', resetRoutes);
 app.use('/buzzword', buzzWordRoutes);
 app.use('/buzzwords', buzzWordsRoutes);
 
