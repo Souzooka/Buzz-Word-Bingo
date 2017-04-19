@@ -24,4 +24,32 @@ describe('Buzz-Word-Bingo', function() {
       .expect('Content-Type', 'application/json; charset=utf-8', done);
   });
 
+  it('Returns a JSON string when POSTing a new buzzword', function(done) {
+    request
+      .post('/buzzwords')
+      .expect(200)
+      .expect('Content-Type', 'application/json; charset=utf-8', done);
+  });
+
+  it('Returns a JSON string when PUTting a buzzword', function(done) {
+    request
+      .put('/buzzwords')
+      .expect(200)
+      .expect('Content-Type', 'application/json; charset=utf-8', done);
+  });
+
+  it('Returns a JSON string when DELETEing a buzzword', function(done) {
+    request
+      .delete('/buzzwords')
+      .expect(200)
+      .expect('Content-Type', 'application/json; charset=utf-8', done);
+  });
+
+  it('Returns a JSON string when resetting', function(done) {
+    request
+      .post('/buzzwords')
+      .expect(200)
+      .expect('Content-Type', 'application/json; charset=utf-8', done);
+  });
+
 });
