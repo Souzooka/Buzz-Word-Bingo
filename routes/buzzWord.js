@@ -22,6 +22,7 @@ function findBuzzWordIndex(req) {
 function updateBuzzWordAndScore(req, buzzWordIndex, score) {
   const buzzWordObj = req.app.get('buzzWords').buzzWords[buzzWordIndex];
 
+  score = Number(score);
   if (!buzzWordObj.heard) {
     score += buzzWordObj.points;
   }
@@ -65,7 +66,7 @@ router.route('/')
 
         if (buzzWordIndex !== -1 && req.body.heard !== undefined) {
           updateBuzzWordAndScore(req, buzzWordIndex, score);
-          res.send({"success": true});
+          res.send({"success": true, "newScore": req.app.get('score')});
         } else {
           res.status(400);
           res.send({"success": false});
