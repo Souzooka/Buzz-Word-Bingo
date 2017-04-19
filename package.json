@@ -1,0 +1,29 @@
+{
+  "name": "Buzz-Word-Bingo",
+  "version": "1.0.0",
+  "description": "**About the game**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devleague/Buzz-Word-Bingo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devleague/Buzz-Word-Bingo/issues"
+  },
+  "homepage": "https://github.com/devleague/Buzz-Word-Bingo#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "supertest": "^3.0.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "handlebars": "^4.0.6"
+  }
+}
